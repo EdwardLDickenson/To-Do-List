@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<!--  This document is largely a mock-up.  It's really only here to debug and test JavaScript as well as some styling. -->
+<html data-ng-app="todo">
+  <head>
+    <title>To-Do List</title>
+    <link href="todo.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="todo.js"></script>
+  </head>
+  <body>
+    <!-- I'm just borrowing the "main" naming convention from C/C++/Java -->
+    <div data-ng-controller="ctrl" id="main">
+      <h1>To-Do List</h1>
+      <form id="main.form">
+        <!-- I could make the rows and columns for the textarea variables and figure out the lenght of the strings in JavaScript, but that's probably not necessary here -->
+        <textarea id="main.textarea" data-ng-model="todoBody" placeholder="Input a new To-Do item here" rows="4" cols="26"></textarea><br>
+        <input type="button" value="Add New To-Do Item" data-ng-click="append()" id="main.form.add"></input>
+      </form>
+
+      <h4 id="main.uncompletedtitle">Uncompleted To-Do Tasks</h4>
+      <ul id="main.uncompleted">
+          <li data-ng-repeat="value in todoItems"><div>
+            <input type="checkbox" data-ng-model="finished" data-ng-click="checked(value)"></input>
+            {{value.todo}}
+          </div></li>
+      </ul>
+
+      <h4 id="main.completedtitle">Completed To-Do Tasks</h4>
+      <ul id="main.completed">
+        <li data-ng-repeat="value in finishedItems"><div>
+          <input type="checkbox" data-ng-model="unfinished" data-ng-click="unchecked(value)"></input>
+          {{value.todo}}
+        </div></li>
+      </ul>
+    </div>
+  </body>
+</html>
