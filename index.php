@@ -7,6 +7,10 @@
   Version: 0.1
 */
 
+//  The HTML was broken up into different functions so that the user could
+//  decide which order, completed or uncompleted first, they want to display
+//  information.
+
 function startTodo()
 {
     $path = get_template_directory_uri() . "/todo/";
@@ -25,22 +29,6 @@ function startTodo()
         <textarea data-ng-model='todoBody' placeholder='Input a new To-Do item here' rows='4' cols='26'></textarea><br>
         <input type='button' value='Add New To-Do Item' data-ng-click='append()'></input>
       </form>
-
-      <h4>Uncompleted To-Do Tasks</h4>
-      <ul>
-          <li data-ng-repeat='value in todoItems'><div>
-            <input type='checkbox' data-ng-model='finished' data-ng-click='checked(value)'></input>
-            {{value.todo}}
-          </div></li>
-      </ul>
-
-      <h4>Completed To-Do Tasks</h4>
-      <ul>
-        <li data-ng-repeat='value in finishedItems'><div>
-          {{value.todo}}
-        </div></li>
-      </ul>
-      </div>
     ";
 
     return $result;
