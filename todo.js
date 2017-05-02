@@ -28,7 +28,7 @@ app.controller("ctrl", function($scope){
     else
     {
       //  I started out by using an iterator, but that created a lot of manual
-      //  work.  So I just decided to let the JS do that work and use indexOf.
+      //  work.  So I just decided to let the JS engine do that work and use indexOf.
       $scope.finishedItems.push($scope.todoItems[$scope.todoItems.indexOf(arg)]);
     }
 
